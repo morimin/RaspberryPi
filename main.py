@@ -2,11 +2,12 @@
 import os
 import subprocess
 import sys
+import wifi_info as wifi_info
 
 # 사용자가 직접 변경할 WiFi 설정 값
-WIFI_SSID = "YOUR_WIFI_SSID"
-WIFI_PASSWORD = "YOUR_WIFI_PASSWORD"
-WIFI_COUNTRY = "KR"  # 예: 한국은 KR, 미국은 US 등
+WIFI_SSID = wifi_info.WIFI_SSID 
+WIFI_PASSWORD = wifi_info.WIFI_PASSWORD
+WIFI_COUNTRY = wifi_info.WIFI_COUNTRY
 
 def run_command(command):
     """명령어를 실행하고 오류 발생 시 종료합니다."""
