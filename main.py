@@ -4,7 +4,7 @@ import subprocess
 import sys
 import wifi_info as wifi_info
 
-# 사용자가 직접 변경할 WiFi 설정 값
+# 사용자가 직접 변경할 WiFi 설정
 WIFI_SSID = wifi_info.WIFI_SSID 
 WIFI_PASSWORD = wifi_info.WIFI_PASSWORD
 WIFI_COUNTRY = wifi_info.WIFI_COUNTRY
@@ -30,10 +30,10 @@ def configure_features():
 
 def reconfigure_partitions(device):
     print("경고: 파티션 재설정은 데이터 손실을 초래합니다!")
-    confirm = input("정말로 파티션을 재설정하시겠습니까? (y/N): ")
-    if confirm.lower() != 'y':
-        print("파티션 재설정 작업을 취소합니다.")
-        return
+    # confirm = input("정말로 파티션을 재설정하시겠습니까? (y/N): ")
+    # if confirm.lower() != 'y':
+    #     print("파티션 재설정 작업을 취소합니다.")
+    #     return
 
     # 사용 중인 파티션 언마운트 (오류 발생시 무시)
     run_command(f"umount {device}p1 || true")
@@ -56,11 +56,11 @@ def reconfigure_partitions(device):
 
 def configure_wifi(ssid, password, country):
     print("WiFi 설정을 진행합니다.")
-    print("경고: 현재 설정된 WiFi 정보는 덮어쓰게 됩니다!")
-    confirm = input("정말로 WiFi 설정을 강제로 적용하시겠습니까? (y/N): ")
-    if confirm.lower() != 'y':
-        print("WiFi 설정을 건너뜁니다.")
-        return
+    # print("경고: 현재 설정된 WiFi 정보는 덮어쓰게 됩니다!")
+    # confirm = input("정말로 WiFi 설정을 강제로 적용하시겠습니까? (y/N): ")
+    # if confirm.lower() != 'y':
+    #     print("WiFi 설정을 건너뜁니다.")
+    #     return
 
     config_content = f"""ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev update_config=1 country={country} network={{ssid="{ssid}" psk="{password}" key_mgmt=WPA-PSK}}"""
     try:
