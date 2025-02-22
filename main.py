@@ -2,12 +2,12 @@
 import os
 import subprocess
 import sys
-import wifi_info as wifi_info
+import wifi_info as wifi_info_value
 
 # 사용자가 직접 변경할 WiFi 설정
-WIFI_SSID = wifi_info.WIFI_SSID 
-WIFI_PASSWORD = wifi_info.WIFI_PASSWORD
-WIFI_COUNTRY = wifi_info.WIFI_COUNTRY
+WIFI_SSID = wifi_info_value.WIFI_SSID 
+WIFI_PASSWORD = wifi_info_value.WIFI_PASSWORD
+WIFI_COUNTRY = wifi_info_value.WIFI_COUNTRY
 
 def run_command(command):
     """명령어를 실행하고 오류 발생 시 종료합니다."""
